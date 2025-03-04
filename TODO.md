@@ -5,4 +5,10 @@
 
 ## 02/25:
 - Look into network topology.
-- Research different types of gyms.
+- Figure out evaluation metrics.
+- Figure out important parameters.
+- Figure out application type. (Centralized, decentralized)
+
+## 03/11
+- Implement a basic model of data replication system.
+
