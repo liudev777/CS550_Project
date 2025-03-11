@@ -16,5 +16,13 @@ For the sake of getting a prototype off the ground, we will get a simple impleme
 
 We will use a centralized application (Master Slave) [1] where the master node keeps track of the up to date global view of data. This will be easier for our purpose since the replication parameters will be located in one place. If this goes well, the implementation can be extended to a decentralized application.
 
+- Master node will provide lookup of where data is stored in other nodes.
+- Client asks master where data x is and master node replies with node y.
+- Client goes directly to node y to get data.
+
+### Might consider:
+- Client-side caching for recently looked up node so it doesn't go through master again.
+- Regional master in the scenario the master node is far away.
+
 ### Sources:
 [1] Mokadem, R., Arar, F., & Zegour, D. E. (2024, October 7). Towards using reinforcement learning for scaling and data replication in Cloud Systems. arXiv.org. https://arxiv.org/abs/2410.11862 
