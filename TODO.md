@@ -12,3 +12,6 @@
 ## 03/11
 - Implement a basic model of data replication system.
 
+## 03/25
+- Figured out a simple min cost metric, as well as influencing factors.
+

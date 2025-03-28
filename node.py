@@ -1,4 +1,5 @@
 from collections import defaultdict
+from access import Access
 import networkx as nx
 
 """
@@ -20,9 +21,15 @@ class Master(Node):
   def __init__(self, node_id):
     super().__init__(node_id)
     self.data_locations = defaultdict(set)
+    self.read_access = {}
+  
+  def updateAccess(self, key, client_id):
+    if (key in self.read_access):
+      self.read_access[key].updateAccessCount(client_id)
 
   def registerData(self, node_id, key):
     self.data_locations[key].add(node_id)
+    self.read_access[key] = Access()
 
   def findClosestReplica(self, graph, source_node, key):
     if key not in self.data_locations:
@@ -67,12 +74,14 @@ class ClientNode(Node):
   def __init__(self, node_id):
     super().__init__(node_id)
 
-  def requestData(self, master, graph, key):
+  def requestData(self, master, graph, key, total_hops):
     response = master.findClosestReplica(graph, self.node_id, key)
 
     if response is not None:
       closest_replica, hops = response
       print(f"Client {self.node_id} retrieves data {key} from Node {closest_replica} in {hops} hops.")
+      total_hops[0] += hops
+      master.updateAccess(key, self.node_id)
     else:
       print(f"Client {self.node_id} requested Data {key}, but it is unavailable.")
   
