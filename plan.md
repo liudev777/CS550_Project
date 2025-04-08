@@ -39,12 +39,12 @@ We will use a centralized application (Master Slave) [1] where the master node k
   T_Cost = (w1 * (1/availabilityCost)?) + (w2 * storageCost) + (w3 * hopDistanceCost)
 
 * look into separating cost into a maximizing cost and minimizing cost for RL
-- availabilityCost = *
-- storageCost = 
-- hopDistanceCost = avg(networkDistance(client, replica)) *just read cost for now. We may need to implement write cost to all replicas later.
+- // availabilityCost = *
+- storageCost = total_replicas / max_storage
+- hopDistanceCost = avg(networkDistance(client, replica))/ max_possible_hop *just read cost for now. We may need to implement write cost to all replicas later.
 
 ### Factor influences:
-Availability:
+// Availability:
 - Increased replication factor.
 - Fast recovery in the event of node failure.
 

@@ -15,3 +15,16 @@
 ## 03/25
 - Figured out a simple min cost metric, as well as influencing factors.
 
+## 4/1
+- Refine cost metric
+- Create a manual action test env
+
+## 4/8 
+- look for real datasets (redis)
+*rename storage cost to replica storage cost
+- internal mapping
+
+stable baselines
+
+## backlog
+- Run the model in RL env
